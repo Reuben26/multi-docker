@@ -1,0 +1,17 @@
+sudo: required
+language: generic
+services:
+  - docker  
+
+before_install:
+  - docker build -t ruyao2k/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true ruyao2k/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t ruyao2k/complex-client ./client
+  - docker build -t ruyao2k/complex-nginx ./nginx
+  - docker build -t ruyao2k/complex-server ./server
+  - docker build -t ruyao2k/complex-worker ./worker
+  # Log in to the Docker CLI
