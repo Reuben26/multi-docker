@@ -14,6 +14,7 @@ after_success:
   - docker build -t ruyao2k/complex-nginx ./nginx
   - docker build -t ruyao2k/complex-server ./server
   - docker build -t ruyao2k/complex-worker ./worker
+  
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
