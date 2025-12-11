@@ -24,7 +24,7 @@ after_success:
   - docker push ruyao2k/complex-server
   - docker push ruyao2k/complex-worker
 
- 
+ # update 
 deploy:
     provider: elasticbeanstalk
     region: "us-east-1"
