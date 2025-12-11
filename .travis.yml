@@ -24,14 +24,4 @@ after_success:
   - docker push ruyao2k/complex-server
   - docker push ruyao2k/complex-worker
 
-   deploy:
-    provider: elasticbeanstalk
-    region: "us-east-1"
-    app: "multi-docker"
-    env: "multi-docker-env-1"
-    bucket_name: "elasticbeanstalk-us-east-1-398370989042"
-    bucket_path: "frontend"
-    on:
-      branch: master
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
+ 
