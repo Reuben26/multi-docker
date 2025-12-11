@@ -1,0 +1,40 @@
+{
+    "AWSEBDockerrunVersion": "2",   
+    "ContainerDefinitions": [
+        {
+        "Name": "client",
+        "Image": "ruyao2k/complex-client:latest",
+        "hostname": "client",
+        "Essential": false
+        },
+        {
+
+        "Name": "worker",
+        "Image": "ruyao2k/complex-worker:latest",
+        "hostname": "worker",
+        "Essential": false
+        },
+        {
+        "Name": "server",
+        "Image": "ruyao2k/complex-server:latest",
+        "hostname": "server",
+        "Essential": true
+        },
+        {
+        "Name": "nginx",
+        "Image": "ruyao2k/complex-nginx:latest",    
+        "hostname": "nginx",
+        "Essential": true,
+        "portMappings": [
+            {
+            "ContainerPort": "80",
+            "HostPort": "80"
+            }
+        ],
+        "Links": [
+            "client",
+            "nginx"
+        ]
+        }
+    ]
+}
